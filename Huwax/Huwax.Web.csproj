@@ -209,6 +209,16 @@
     <Folder Include="HTML\assets\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Huwax.Dal\Huwax.Dal.csproj">
+      <Project>{6396f740-79ca-41d3-888c-374091f7266a}</Project>
+      <Name>Huwax.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Huwax.Infrastructure.csproj">
+      <Project>{88ca56d0-2a2e-41cf-a95f-723c67375e93}</Project>
+      <Name>Huwax.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
