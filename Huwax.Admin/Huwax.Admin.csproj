@@ -507,13 +507,17 @@
     <Content Include="Views\Personnel\Index.cshtml" />
     <Content Include="Views\Personnel\AddPersonnel.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Cari\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CariController.cs" />
+    <Compile Include="Controllers\CarWashController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -539,7 +543,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\CarWash\" />
     <Folder Include="Views\User\" />
+    <Folder Include="Views\Vehicle\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
