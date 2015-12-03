@@ -3,28 +3,27 @@
     ViewBag.Title = "AddUser";
 }
 
-<div class="wrapper">
-    <div class="page-content the-box">
-        <div class="container-fluid">
-            <div class="col-sm-12">
-                <div class="the-box bg-default no-border no-margin heading" style="background-color: whitesmoke;">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h1><i class="fa fa-user icon-lg icon-circle icon-bordered"></i> Kullanıcı Kayıt İşlemi</h1>
-                        </div>
+
+<div class="container-fluid">
+    <div class="col-sm-12">
+        <div class="the-box bg-default no-border no-margin heading" style="background-color: whitesmoke;">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1><i class="fa fa-user icon-lg icon-circle icon-bordered"></i> Kullanıcı Kayıt İşlemi</h1>
+                </div>
+            </div>
+        </div>
+        <div class="the-box form-horizontal ">
+            <h4 class="small-title"></h4>
+            @using (Html.BeginForm("UserAdd", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"></label>
+                    <div class="col-lg-4">
+                        @Html.ValidationSummary(true, "", new { @class = "error", @style = "margin-top: -2.3% !important;color:#D51919;" })
                     </div>
                 </div>
-                <div class="the-box form-horizontal ">
-                    <h4 class="small-title"></h4>
-                    @using (Html.BeginForm("UserAdd", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label"></label>
-                            <div class="col-lg-4">
-                                @Html.ValidationSummary(true, "", new { @class = "error", @style = "margin-top: -2.3% !important;color:#D51919;" })
-                            </div>
-                        </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Adı Soyadı</label>
                             <div class="col-lg-4">
@@ -78,33 +77,7 @@
                                 <input type="text" class="form-control cc_security_masking" required name="DahiliPhone" id="DahiliPhone" placeholder="0000" maxlength="4" autocomplete="off" />(0000) / Dahili Telefon
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">Kullanıcı Yetkileri</label>
-                            <div class="col-lg-4">
-                                <div class="list-group warning">
-                                    <a class="list-group-item">
-                                        Süper Admin <span class="badge " style="background-color: white">
-                                            <input type="radio" name="userRoleId" checked value="1">
-                                        </span>
-                                    </a>
-                                    <a class="list-group-item">
-                                        Admin <span class="badge" style="background-color: white">
-                                            <input type="radio" name="userRoleId" value="2">
-                                        </span>
-                                    </a>
-                                    <a class="list-group-item">
-                                        Kullanıcı <span class="badge " style="background-color: white">
-                                            <input type="radio" name="userRoleId" value="3">
-                                        </span>
-                                    </a>
-                                    <a class="list-group-item">
-                                        Yönetici <span class="badge" style="background-color: white">
-                                            <input type="radio" name="userRoleId" value="4">
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Kullanıcı Fotoğrafı</label>
                             <div class="col-lg-4">
@@ -116,9 +89,7 @@
                                 <button type="submit" class="btn btn-default">Kaydet</button>
                             </div>
                         </div>
-                    }
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>
