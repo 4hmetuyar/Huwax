@@ -13,5 +13,15 @@ namespace Huwax.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult AddVehicle()
+        {
+            return View();
+        }
+
+        public ActionResult VehicleList()
+        {
+            return View();
+        }
     }
 }

@@ -511,6 +511,9 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\AddUser.cshtml" />
     <Content Include="Views\User\UserList.cshtml" />
+    <Content Include="Views\Vehicle\Index.cshtml" />
+    <Content Include="Views\Vehicle\AddVehicle.cshtml" />
+    <Content Include="Views\Vehicle\VehicleList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -547,7 +550,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\CarWash\" />
-    <Folder Include="Views\Vehicle\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
