@@ -12,9 +12,6 @@ namespace Infrastructure.Repositories
 {
     public interface IUserRepository : IGenericRepository<User>
     {
-        
-
-
     }
 
     public class UserRepository : GenericRepository<User>, IUserRepository
@@ -24,12 +21,5 @@ namespace Infrastructure.Repositories
         {
 
         }
-
-
-        
-
-       
-
-        
     }
 }
