@@ -14,6 +14,7 @@ namespace Infrastructure.Repositories
     {
         User AddNewUserByUserModel(UserModel model);
         UserModel GetUsersModelByUserNameAndPassword(string userName, string password);
+        bool CheckTheUserNameByUserName(string userName);
 
     }
 
@@ -74,6 +75,26 @@ namespace Infrastructure.Repositories
                              UserName = user.UserName,
                           }).FirstOrDefault();
             return model;
+        }
+
+        public bool CheckTheUserNameByUserName(string userName)
+        {
+            try
+            {
+                var model = (from u in DataContext.User
+                             where u.UserName == userName && u.IsDeleted == false
+                             select u).FirstOrDefault();
+                if (model != null)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

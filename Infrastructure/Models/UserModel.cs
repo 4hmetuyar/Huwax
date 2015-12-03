@@ -25,7 +25,7 @@ namespace Infrastructure.Models
         public Nullable<int> ModifiedById { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-        public string DahiliTel { get; set; }
-        public string RePassword { get; set; }
+        public string ConfirmPassword { get; set; }
+
     }
 }

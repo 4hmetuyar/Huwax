@@ -1,7 +1,196 @@
-﻿
-@{
-    ViewBag.Title = "UserProfile";
-}
+﻿@using Huwax.Common
 
-<h2>UserProfile</h2>
+ @{
+    ViewBag.Title = "Kullanıcı Profili";
+    var imageSrc = "/assets/img/avatar/avatar-1.jpg";
+    if (Model.Avatar != null)
+    {
+        var imageBase64 = Convert.ToBase64String(Model.Avatar);
+        imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+    }
+}
+@if (Model != null)
+{
+    <div class="wrapper">
+        <div class="page-content the-box">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="the-box transparent full no-margin profile-heading">
+                            <img src="~/assets/img/user/user-profile-banner.PNG" class="bg-cover" alt="Image" style=" height: 250px;">
+                            <img src="@imageSrc" class="avatar" alt="Avatar">
+                            <div class="profile-info">
+                                <p class="user-name">@Model.Name @Model.LastName</p>
+                                
+                                <p class="right-button">
+                                    <a href="@Url.Action("UserProfileEdit","User",new {userId=Model.UserId})" class="btn btn-default btn-sm">Kullanıcıyı Düzenle</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="panel with-nav-tabs panel-primary panel-square panel-no-border" style=" background-color: whitesmoke;">
+                            <div class="panel-heading">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#panel-home" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                                    <li><a href="#panel-about" data-toggle="tab"><i class="fa fa-user"></i></a></li>
+                                </ul>
+                            </div>
+                            <div id="panel-collapse-1" class="collapse in">
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active " id="panel-home">
+                                            <h4 class="small-heading more-margin-bottom">Kullanıcı Avtiviteleri</h4>
+                                            @*<ul class="media-list media-xs">
+                                                    <li class="media">
+                                                        <a class="pull-left" href="#fakelink">
+                                                            <img class="media-object img-circle" src="~/assets/img/avatar/avatar-1.jpg" alt="Avatar">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading"><a href="#fakelink">Wrote a post</a></h4>
+                                                            <p class="date"><small>2 hours ago</small></p>
+                                                            <p class="small">
+                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="media">
+                                                        <a class="pull-left" href="#fakelink">
+                                                            <img class="media-object img-circle" src="assets/img/avatar/avatar-1.jpg" alt="Avatar">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading"><a href="#fakelink">Rate a story</a></h4>
+                                                            <p class="date"><small>5 hours ago</small></p>
+                                                            <p><strong><a href="#fakelink">Consectetuer adipiscing elit, sed diam nonummy nibh</a></strong></p>
+                                                            <p class="small">
+                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                                            </p>
+                                                            <p class="text-muted small">By Thomas White</p>
+                                                            <p>
+                                                                <i class="fa fa-star text-warning"></i>
+                                                                <i class="fa fa-star text-warning"></i>
+                                                                <i class="fa fa-star text-warning"></i>
+                                                                <i class="fa fa-star text-warning"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="media">
+                                                        <a class="pull-left" href="#fakelink">
+                                                            <img class="media-object img-circle" src="assets/img/avatar/avatar-1.jpg" alt="Avatar">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading"><a href="#fakelink">Updated a quote</a></h4>
+                                                            <p class="date"><small>Yesterday</small></p>
+                                                            <blockquote>
+                                                                Wong urip kui mung mampir ngombe dab, rasah kemaki!
+                                                                <small>at <a href="#fakelink">Yogyakarta, Indonesia</a></small>
+                                                            </blockquote>
+                                                        </div>
+                                                    </li>
+                                                    <li class="media">
+                                                        <a class="pull-left" href="#fakelink">
+                                                            <img class="media-object img-circle" src="assets/img/avatar/avatar-1.jpg" alt="Avatar">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading"><a href="#fakelink">Commented a photo</a></h4>
+                                                            <p class="date"><small>2 hours ago</small></p>
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <img src="assets/img/photo/medium/img-2.jpg" class="img-responsive thumbnail" alt="Image">
+                                                                </div><!-- /.col-sm-6 -->
+                                                            </div><!-- /.row -->
+                                                            <p class="small">
+                                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy!
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="media">
+                                                        <a class="pull-left" href="#fakelink">
+                                                            <img class="media-object img-circle" src="assets/img/avatar/avatar-1.jpg" alt="Avatar">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading"><a href="#fakelink">Added 15 friends</a></h4>
+                                                            <p class="date"><small>May 01, 2014</small></p>
+                                                            <p>
+                                                                <a href="#fakelink"><img data-toggle="tooltip" title="Doina Slaivici" src="assets/img/avatar/avatar-3.jpg" class="social-avatar xs" alt="Avatar"></a>
+
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                </ul>*@
+                                        </div>
+                                        <div class="tab-pane fade " id="panel-about">
+                                            <h4 class="small-heading more-margin-bottom">Kullanıcı Profil Bilgileri</h4>
+                                            <form class="form-horizontal" role="form">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Adı Soyadı</label>
+                                                    <div class="col-sm-10">
+                                                        <p class="form-control-static">@Model.Name @Model.LastName</p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Email</label>
+                                                    <div class="col-sm-10">
+                                                        <p class="form-control-static">@Model.Email</p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Kullanıcı Adı</label>
+                                                    <div class="col-sm-10">
+                                                        <p class="form-control-static">@Model.UserName</p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Oluşturma Zamanı</label>
+                                                    <div class="col-sm-10">
+                                                        <p class="form-control-static"> @Model.CreatedDate</p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Düzenleme Zamanı</label>
+                                                    <div class="col-sm-10">
+                                                        <p class="form-control-static">@Model.ModifiedDate</p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Oluşturan</label>
+                                                    <div class="col-sm-10">
+                                                        <p class="form-control-static"> @Model.CreatedUserName</p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Durumu</label>
+                                                    <div class="col-sm-10">
+                                                        @if (Model.Status == true)
+                                                        {
+                                                            <p class="form-control-static"> Aktif</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p class="form-control-static"> Pasif</p>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Telefon</label>
+                                                    <div class="col-sm-10">
+                                                        <p class="form-control-static"> @Model.Phone</p>
+                                                    </div>
+                                                </div> <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Dahili Telefon</label>
+                                                    <div class="col-sm-10">
+                                                        <p class="form-control-static"> @Model.DahiliPhone</p>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
