@@ -69,6 +69,8 @@
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CariRepository.cs" />
+    <Compile Include="Repositories\SalaryRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup />
