@@ -38,9 +38,20 @@ namespace Huwax.Admin.Controllers
 
         public ActionResult UserList()
         {
-            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+            try
+            {
+                if (Session["User"] == null) return RedirectToAction("Login", "Account");
 
-            return View();
+                var user = _userRepository.GetAllUserList();
+                return View(user);
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         public ActionResult UserProfile()

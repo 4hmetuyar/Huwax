@@ -15,6 +15,7 @@ namespace Infrastructure.Repositories
         User AddNewUserByUserModel(UserModel model);
         UserModel GetUsersModelByUserNameAndPassword(string userName, string password);
         bool CheckTheUserNameByUserName(string userName);
+        List<UserModel> GetAllUserList();
 
     }
 
@@ -95,6 +96,27 @@ namespace Infrastructure.Repositories
 
                 throw;
             }
+        }
+
+        public List<UserModel> GetAllUserList()
+        {
+            var model = (from user in DataContext.User
+                          select new UserModel
+                         {
+                             Avatar = user.Avatar,
+                             CreatedById = user.CreatedById,
+                             Email = user.Email,
+                             IsDeleted = user.IsDeleted,
+                             LastName = user.LastName,
+                             ModifiedById = user.ModifiedById,
+                             ModifiedDate = user.ModifiedDate,
+                             Name = user.Name,
+                             Password = user.Password,
+                             Phone = user.Phone,
+                             UserId = user.UserId,
+                             UserName = user.UserName,
+                         }).ToList();
+            return model;
         }
     }
 }
