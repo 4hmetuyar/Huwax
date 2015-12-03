@@ -9,9 +9,14 @@ namespace Huwax.Admin.Controllers
     public class AccountController : Controller
     {
         // GET: Account
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
+        }
+
+        public ActionResult LogOut()
+        {
+            return RedirectToAction("Login", "Account");
         }
     }
 }
