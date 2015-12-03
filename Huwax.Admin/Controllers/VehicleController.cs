@@ -11,16 +11,22 @@ namespace Huwax.Admin.Controllers
         // GET: Vehicle
         public ActionResult Index()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
 
         public ActionResult AddVehicle()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
 
         public ActionResult VehicleList()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
     }

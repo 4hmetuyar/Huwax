@@ -11,16 +11,22 @@ namespace Huwax.Admin.Controllers
         // GET: Personnel
         public ActionResult Index()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
 
         public ActionResult AddPersonnel()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
 
         public ActionResult PersonnelList()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
     }

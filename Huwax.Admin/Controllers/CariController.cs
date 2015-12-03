@@ -11,6 +11,8 @@ namespace Huwax.Admin.Controllers
         // GET: Cari
         public ActionResult Index()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
     }

@@ -23,21 +23,29 @@ namespace Huwax.Admin.Controllers
         // GET: User
         public ActionResult Index()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
 
         public ActionResult AddUser()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
 
         public ActionResult UserList()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
 
         public ActionResult UserProfile()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
 

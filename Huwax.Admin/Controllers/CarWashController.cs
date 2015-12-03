@@ -11,11 +11,15 @@ namespace Huwax.Admin.Controllers
         // GET: CarWash
         public ActionResult Index()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
 
         public ActionResult CarWashList()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
             return View();
         }
     }
