@@ -1,0 +1,137 @@
+﻿@model Infrastructure.Models.UserModel
+@{
+    ViewBag.Title = "Kullanıcı Düzenle";
+}
+<div class="wrapper">
+    <div class="page-content the-box">
+        <div class="container-fluid">
+            <div class="col-sm-12">
+                <div class="the-box bg-default no-border no-margin heading" style="background-color: whitesmoke;">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h1><i class="fa fa-user icon-lg icon-circle icon-bordered"></i> Kullanıcı Düzenleme İşlemi</h1>
+                        </div><!-- /.col-sm-6 -->
+                    </div><!-- /.row -->
+                </div>
+                <div class="the-box form-horizontal ">
+                    <h4 class="small-title"></h4>
+                    @using (Html.BeginForm("UserProfileEdit", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.HiddenFor(model => model.UserId)
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Adı Soyadı</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" name="Name" value="@Model.Name" id="Name" required data-bv-notempty-message="The first name is required and cannot be empty" />
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" name="LastName" value="@Model.LastName" id="LastName" placeholder="Soyadı" required data-bv-notempty-message="The last name is required and cannot be empty" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Kullanıcı Adı</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" name="UserName" disabled="disabled" value="@Model.UserName" id="UserName" placeholder="Kullanıcı Adı"
+                                       data-bv-message="The username is not valid"
+                                       required data-bv-notempty-message="The username is required and cannot be empty"
+                                       pattern="[a-zA-Z0-9_\.]+" data-bv-regexp-message="The username can only consist of alphabetical, number, dot and underscore"
+                                       data-bv-stringlength="true" data-bv-stringlength-min="6" data-bv-stringlength-max="30" data-bv-stringlength-message="The username must be more than 6 and less than 30 characters long"
+                                       data-bv-different="true" data-bv-different-field="password" data-bv-different-message="The username and password cannot be the same as each other"
+                                       data-bv-remote="true" data-bv-remote-url="remote.php" data-bv-remote-message="The username is not available" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">E-Posta Adresi</label>
+                            <div class="col-lg-4">
+                                <input class="form-control" name="Email" id="Email" value="@Model.Email" placeholder="E-Posta Adresi" type="email" data-bv-emailaddress-message="The input is not a valid email address" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Yeni Sifre</label>
+                            <div class="col-lg-4">
+                                <input type="password" class="form-control" name="Password" id="Password"
+                                       placeholder="Sifre"
+                                       data-bv-notempty-message="The password is required and cannot be empty"
+                                       data-bv-identical="true" data-bv-identical-field="confirmPassword" data-bv-identical-message="The password and its confirm are not the same"
+                                       data-bv-different="true" data-bv-different-field="username" data-bv-different-message="The password cannot be the same as username" />
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="password" class="form-control" name="ConfirmPassword" id="ConfirmPassword" placeholder="Sifre Tekrar"
+                                       data-bv-notempty-message="The confirm password is required and cannot be empty"
+                                       data-bv-identical="true" data-bv-identical-field="password" data-bv-identical-message="The password and its confirm are not the same"
+                                       data-bv-different="true" data-bv-different-field="username" data-bv-different-message="The password cannot be the same as username" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Doğum Tarihi</label>
+                            <div class="col-lg-4">
+                                <input type="date" class="form-control" value="@if (Model.Birthday != null)
+                                                                               {
+                                                                                   @Convert.ToDateTime((DateTime)Model.Birthday).ToString("yyyy-MM-dd")
+                                                                               }" name="Birthday" id="Birthday" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Telefon Bilgileri</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control phone_us_masking" value="@Model.Phone" placeholder="(000) 000-0000" name="Phone" id="Phone" /> (000) 000-0000 / Telefon
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control cc_security_masking" value="@Model.DahiliPhone" name="DahiliPhone" id="DahiliPhone" placeholder="0000" maxlength="4" />(0000) / Dahili Telefon
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Kullanıcı Yetkileri</label>
+                            <div class="col-lg-4">
+                                <div class="list-group warning">
+                                    @{
+                                        if (Model.SuperAdmin)
+                                        {
+                                            <a class="list-group-item">Süper Admin <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="1" checked></span></a>
+                                                <a class="list-group-item">Admin <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="2"></span></a>
+                                                            <a class="list-group-item">Kullanıcı <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="3"></span></a>
+                                                            <a class="list-group-item">Yönetici <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="4"></span></a>
+                                        }
+                                        else if (Model.Admin)
+                                        {
+                                            <a class="list-group-item">Süper Admin <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="1"></span></a>
+                                                <a class="list-group-item">Admin <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="2" checked></span></a>
+                                                            <a class="list-group-item">Kullanıcı <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="3"></span></a>
+                                                            <a class="list-group-item">Yönetici <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="4"></span></a>
+                                        }
+                                        else if (Model.SystemUser)
+                                        {
+                                            <a class="list-group-item">Süper Admin <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="1"></span></a>
+                                                <a class="list-group-item">Admin <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="2"></span></a>
+                                                            <a class="list-group-item">Kullanıcı <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="3" checked></span></a>
+                                                            <a class="list-group-item">Yönetici <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="4"></span></a>
+                                        }
+                                        else if (Model.SystemManager)
+                                        {
+                                            <a class="list-group-item">Süper Admin <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="1"></span></a>
+                                                <a class="list-group-item">Admin <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="2"></span></a>
+                                                            <a class="list-group-item">Kullanıcı <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="3"></span></a>
+                                                            <a class="list-group-item">Yönetici <span class="badge " style="background-color: white"><input type="radio" name="userRoleId" value="4" checked></span></a>
+                                        }
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Kullanıcı Fotoğrafı</label>
+                            <div class="col-lg-4">
+                                <input type="file" class="form-control btn-file" name="files" id="files" data-bv-date="false" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-9 col-lg-offset-3">
+                                <button type="submit" class="btn btn-default">Kaydet</button>
+                            </div>
+                        </div>
+                                        }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

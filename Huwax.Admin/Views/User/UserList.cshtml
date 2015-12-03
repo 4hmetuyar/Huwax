@@ -1,5 +1,5 @@
 ﻿@using Huwax.Common
-@*@model IEnumerable<Huwax.Infrastructure.Models.UserModel>*@
+@model IEnumerable<Infrastructure.Models.UserModel>
 @{
     ViewBag.Title = "Kullanıcı Listesi";
     var i = 0;
@@ -49,10 +49,7 @@
                                 }
                                 <td>@user.Email</td>
                                 <td>@user.Phone</td>
-                                <td>@user.DahiliPhone</td>
-                                @if (user.Status ?? false)
-                                {
-
+                              
                                     <td>
                                         <a href="@Url.Action("UserStatus", "User", new { userId = user.UserId })"><span class="btn btn-default" title="Aktif"><i class="fa  fa-check-square-o"></i></span></a>
 
@@ -62,17 +59,7 @@
                                         <a href="@Url.Action("UserProfile", "User", new { userId = user.UserId })"><span class="btn btn-default" title="Profil"><i class="fa fa-user"></i></span></a>
                                         <a href="@Url.Action("UserProfileEdit","User",new {userId=user.UserId})"><span class="btn btn-default" title="Düzenle"><i class="fa fa-wrench"></i></span></a>
                                     </td>
-                                }
-                                else
-                                {
-                                    <td>
-                                        <a href="@Url.Action("UserStatus", "User", new { userId = user.UserId })"><span class="btn btn-default"><i class="fa fa-lock" title="Pasif"></i></span></a>
-                                        <a class="btn btn-danger" data-toggle="modal" title="Delete" href='#DefaultModal' onclick="SetId(@user.UserId)">
-                                            <i class=" fa fa-trash-o"></i>
-                                        </a>                                        <a href="@Url.Action("UserProfile", "User", new { userId = user.UserId })"><span class=" btn btn-default"><i class="fa fa-user" title="Profil"></i></span></a>
-                                        <a href="@Url.Action("UserProfileEdit","User",new {userId=user.UserId})"><span class=" btn btn-default"><i class="fa fa-wrench" title="Düzenle"></i></span></a>
-                                    </td>
-                                }
+                               
                             </tr>
                         }
                         @{ i = 0;}

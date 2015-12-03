@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Huwax.Common;
 using Infrastructure.Interfaces;
 using Infrastructure.Models;
 using Infrastructure.Repositories;
@@ -63,7 +64,7 @@ namespace Huwax.Admin.Controllers
                         ModelState.AddModelError("", "Kullanıcı adı kullanılıyor!");
                         return View("AddUser", usersModel);
                     }
-                
+
                     if (usersModel.Password != usersModel.ConfirmPassword)
                     {
                         ModelState.AddModelError("", "Sifreler Aynı Değil!");
@@ -73,13 +74,13 @@ namespace Huwax.Admin.Controllers
                     var model = new UserModel
                     {
                         UserName = usersModel.UserName,
-                         Password = usersModel.Password,
-                         Name = usersModel.Name,
+                        Password = usersModel.Password,
+                        Name = usersModel.Name,
                         LastName = usersModel.LastName,
                         Email = usersModel.Email,
                         IsDeleted = false,
                         Phone = usersModel.Phone,
-                         CreatedById = sessionUser.UserId
+                        CreatedById = sessionUser.UserId
                     };
                     var user = _userRepository.AddNewUserByUserModel(model);
                     if ((files != null) && (files.ContentLength > 0) && !string.IsNullOrEmpty(files.FileName) &&
@@ -108,6 +109,40 @@ namespace Huwax.Admin.Controllers
 
                 throw;
             }
+        }
+
+        public ActionResult UserProfileEdit(int userId)
+        {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
+            try
+            {
+                var user = _userRepository.GetById(userId);
+                if (user != null)
+                {
+                    var model = new UserModel
+                    {
+                        UserName = user.UserName,
+                        Email = user.Email,
+                        LastName = user.LastName,
+                        Name = user.Name,
+                        Avatar = user.Avatar,
+                        Phone = user.Phone,
+                        CreatedById = user.CreatedById,
+
+                    };
+                    return View(model);
+
+                }
+                return RedirectToAction("UserList", "User");
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }
