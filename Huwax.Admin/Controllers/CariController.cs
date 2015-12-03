@@ -15,5 +15,15 @@ namespace Huwax.Admin.Controllers
 
             return View();
         }
+
+        public ActionResult CariAdd()
+        {
+            return View();
+        }
+
+        public ActionResult CariList()
+        {
+            return View();
+        }
     }
 }
