@@ -574,6 +574,7 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Views\Cari\CariAdd.cshtml" />
     <Content Include="Views\Cari\CariList.cshtml" />
+    <Content Include="Views\Account\Lock.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

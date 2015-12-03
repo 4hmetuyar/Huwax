@@ -24,9 +24,60 @@ namespace Huwax.Admin.Controllers
         {
             return View();
         }
-
-        public ActionResult LogOut()
+        public ActionResult Lock()
         {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+            try
+            {
+                var user = (UserModel)Session["User"];
+                Session.RemoveAll();
+                Session.Abandon();
+                Session.Clear();
+                Session["User"] = null;
+                return View(user);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        [HttpPost]
+        public ActionResult Lock(UserModel usersModel)
+        {
+            try
+            {
+                if (usersModel != null)
+                {
+                    var user = _userRepository.GetUsersModelByUserNameAndPassword(usersModel.UserName,
+                        usersModel.Password);
+                    if (user != null)
+                    {
+                        Session["User"] = user;
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+
+                        return RedirectToAction("Login", "Account");
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return RedirectToAction("Login", "Account");
+        }
+        public ActionResult LogOff()
+        {
+            Session.RemoveAll();
+            Session.Abandon();
+            Session.Clear();
+            Session["User"] = null;
             return RedirectToAction("Login", "Account");
         }
         [HttpPost]
