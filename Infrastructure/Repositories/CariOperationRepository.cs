@@ -13,7 +13,8 @@ namespace Infrastructure.Repositories
 
     public interface ICariOperationRepository : IGenericRepository<CariOperation>
     {
-    }
+
+     }
 
     public class CariOperationRepository : GenericRepository<CariOperation>, ICariOperationRepository
     {
