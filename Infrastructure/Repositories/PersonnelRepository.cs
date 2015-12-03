@@ -15,6 +15,7 @@ namespace Infrastructure.Repositories
     public interface IPersonnelRepository : IGenericRepository<Personnel>
     {
         Personnel AddNewPersonnelByPersonnelModel(PersonnelModel model);
+        List<PersonnelModel> GetAllPersonnel();
     }
 
     public class PersonnelRepository : GenericRepository<Personnel>, IPersonnelRepository
@@ -41,6 +42,36 @@ namespace Infrastructure.Repositories
                 Add(add);
                 Commit();
                 return add;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public List<PersonnelModel> GetAllPersonnel()
+        {
+            try
+            {
+                var model = (from personnel in DataContext.Personnel
+                    join salary in DataContext.Salary on personnel.PersonnelId equals salary.PersonnelId
+                    where personnel.IsDeleted == false
+                    select new PersonnelModel
+                    {
+                        CreatedDate = personnel.CreatedDate,
+                        CreatedById = personnel.CreatedById,
+                        Description = salary.Description,
+                        Email = personnel.Email,
+                        LastName = personnel.LastName,
+                        Name = personnel.Name,
+                        PersonnelId = personnel.PersonnelId,
+                        Phone = personnel.Phone,
+                        Total = salary.Total,
+                        SalaryId = salary.SalaryId
+                    }
+                    ).ToList();
+                return model;
             }
             catch (Exception)
             {
