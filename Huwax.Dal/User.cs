@@ -16,17 +16,16 @@ namespace Huwax.Dal
     {
         public int UserId { get; set; }
         public string UserName { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public string IdDeleted { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
         public byte[] Avatar { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<int> CreatedById { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<int> ModifiedById { get; set; }
-        public string IsDeleted { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     }
 }

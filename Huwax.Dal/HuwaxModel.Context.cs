@@ -26,12 +26,12 @@ namespace Huwax.Dal
         }
     
         public virtual DbSet<Cari> Cari { get; set; }
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<CariOperation> CariOperation { get; set; }
         public virtual DbSet<CarWash> CarWash { get; set; }
         public virtual DbSet<DayOff> DayOff { get; set; }
         public virtual DbSet<Personnel> Personnel { get; set; }
         public virtual DbSet<Salary> Salary { get; set; }
         public virtual DbSet<Vehicle> Vehicle { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

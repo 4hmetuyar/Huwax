@@ -12,6 +12,7 @@ namespace Infrastructure.Repositories
 {
     public interface IUserRepository : IGenericRepository<User>
     {
+        User AddNewUserByUserModel(UserModel model);
     }
 
     public class UserRepository : GenericRepository<User>, IUserRepository
@@ -20,6 +21,35 @@ namespace Infrastructure.Repositories
             : base(databaseFactory)
         {
 
+        }
+
+        public User AddNewUserByUserModel(UserModel model)
+        {
+            try
+            {
+                var add = new User
+                {
+                    CreatedDate = model.CretedDate,
+                    IsDeleted = false,
+                    CreatedById = model.CreatedById,
+                    Avatar = model.Avatar,
+                    Email = model.Email,
+                    LastName = model.LastName,
+                    Name = model.Name,
+                    Password = model.Password,
+                    Phone = model.Phone,
+                    UserName = model.UserName,
+                    
+                };
+                Add(add);
+                Commit();
+                return add;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }
