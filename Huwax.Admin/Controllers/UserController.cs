@@ -155,5 +155,55 @@ namespace Huwax.Admin.Controllers
             }
 
         }
+
+        [HttpPost]
+        public ActionResult UserProfileEdit(UserModel usersModel, HttpPostedFileBase files)
+        {
+            try
+            {
+                if (usersModel != null)
+                {
+                    var sessionUser = (UserModel)Session["User"];
+                    if (sessionUser == null) return RedirectToAction("Login", "Account");
+
+                    var user = _userRepository.GetById(usersModel.UserId);
+                    if (user != null)
+                    {
+
+                        user.Name = usersModel.Name;
+                        user.LastName = usersModel.LastName;
+                        user.ModifiedById = sessionUser.UserId;
+                        user.ModifiedDate = DateTime.Now;
+                        user.Phone = usersModel.Phone;
+                        user.Email = usersModel.Email;
+
+                        if ((files != null) && (files.ContentLength > 0) && !string.IsNullOrEmpty(files.FileName) && (files.ContentType == "image/jpeg" || files.ContentType == "image/png"))
+                        {
+                            using (System.Drawing.Image img = System.Drawing.Image.FromStream(files.InputStream))
+                            {
+                                byte[] file = new byte[files.InputStream.Length];
+                                var reader = new BinaryReader(files.InputStream);
+                                files.InputStream.Seek(0, SeekOrigin.Begin);
+                                file = reader.ReadBytes((int)files.InputStream.Length);
+                                user.Avatar = file;
+                            }
+                        }
+                        if (usersModel.Password == usersModel.ConfirmPassword && usersModel.Password != null)
+                        {
+                            user.Password = usersModel.Password;
+                        }
+                        _userRepository.Update(user);
+                        _userRepository.Commit();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return RedirectToAction("UserList", "User");
+        }
     }
 }
