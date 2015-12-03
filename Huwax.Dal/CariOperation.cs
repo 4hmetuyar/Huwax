@@ -22,8 +22,8 @@ namespace Huwax.Dal
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<int> CreatedById { get; set; }
-        public Nullable<bool> IsDeleted { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<int> ModifiedById { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     }
 }

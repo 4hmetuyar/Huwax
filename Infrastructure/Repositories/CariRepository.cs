@@ -32,18 +32,18 @@ namespace Infrastructure.Repositories
                 var add = new Cari
                 {
                     IsDeleted = false,
-                    Adres = model.Adres,
+                    Address = model.Address,
                     CreatedById = model.CreatedById,
                     CreatedDate = model.CreatedDate,
                     Fax = model.Fax,
-                    Firma = model.Firma,
+                    Company = model.Company,
                     TCNo = model.TCNo,
-                    Tel = model.Tel,
-                    Unvan = model.Unvan,
-                    VergiDairesi = model.VergiDairesi,
-                    VergiNo = model.VergiNo,
-                    İl = model.İl,
-                    İlce = model.İlce
+                    Phone = model.Phone,
+                    Title = model.Title,
+                    TaxOffice = model.TaxOffice,
+                    TaxNumber = model.TaxNumber,
+                    Province = model.Province,
+                    District = model.District
                 };
                 Add(add);
                 Commit();

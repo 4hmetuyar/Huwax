@@ -31,7 +31,7 @@ namespace Huwax.Dal
         public virtual DbSet<DayOff> DayOff { get; set; }
         public virtual DbSet<Personnel> Personnel { get; set; }
         public virtual DbSet<Salary> Salary { get; set; }
-        public virtual DbSet<Vehicle> Vehicle { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Vehicle> Vehicle { get; set; }
     }
 }

@@ -17,10 +17,10 @@ namespace Huwax.Dal
         public int CarWashId { get; set; }
         public Nullable<int> VehicleId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<int> CreatedById { get; set; }
         public Nullable<int> Total { get; set; }
         public string Description { get; set; }
+        public Nullable<int> CreatedById { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<int> ModifiedById { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<bool> IsDeleted { get; set; }

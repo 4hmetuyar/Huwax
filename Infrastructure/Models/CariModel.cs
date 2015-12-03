@@ -10,15 +10,15 @@ namespace Infrastructure.Models
     {
         public int CariId { get; set; }
         public string TCNo { get; set; }
-        public string Tel { get; set; }
+        public string Phone { get; set; }
         public string Fax { get; set; }
-        public string VergiNo { get; set; }
-        public string VergiDairesi { get; set; }
-        public string Firma { get; set; }
-        public string Unvan { get; set; }
-        public string İl { get; set; }
-        public string İlce { get; set; }
-        public string Adres { get; set; }
+        public string TaxNumber { get; set; }
+        public string TaxOffice { get; set; }
+        public string Company { get; set; }
+        public string Title { get; set; }
+        public string Province { get; set; }
+        public string District { get; set; }
+        public string Address { get; set; }
         public Nullable<int> CreatedById { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }

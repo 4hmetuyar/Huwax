@@ -11,15 +11,15 @@
           </Key>
           <Property Name="CariId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TCNo" Type="nvarchar" MaxLength="50" />
-          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
           <Property Name="Fax" Type="nvarchar" MaxLength="50" />
-          <Property Name="VergiNo" Type="nvarchar" MaxLength="50" />
-          <Property Name="VergiDairesi" Type="nvarchar" MaxLength="50" />
-          <Property Name="Firma" Type="nvarchar" MaxLength="50" />
-          <Property Name="Unvan" Type="nvarchar" MaxLength="50" />
-          <Property Name="İl" Type="nvarchar" MaxLength="50" />
-          <Property Name="İlce" Type="nvarchar" MaxLength="50" />
-          <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxOffice" Type="nvarchar" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Province" Type="nvarchar" MaxLength="50" />
+          <Property Name="District" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedById" Type="int" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="ModifiedDate" Type="datetime" />
@@ -154,37 +154,37 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HuwaxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HuwaxEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cari" EntityType="HuwaxModel.Cari" />
+          <EntitySet Name="CariOperation" EntityType="HuwaxModel.CariOperation" />
+          <EntitySet Name="CarWash" EntityType="HuwaxModel.CarWash" />
+          <EntitySet Name="DayOff" EntityType="HuwaxModel.DayOff" />
+          <EntitySet Name="Personnel" EntityType="HuwaxModel.Personnel" />
+          <EntitySet Name="Salary" EntityType="HuwaxModel.Salary" />
+          <EntitySet Name="User" EntityType="HuwaxModel.User" />
+          <EntitySet Name="Vehicle" EntityType="HuwaxModel.Vehicle" />
+        </EntityContainer>
         <EntityType Name="Cari">
           <Key>
             <PropertyRef Name="CariId" />
           </Key>
           <Property Name="CariId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TCNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="VergiNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="VergiDairesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Firma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Unvan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="İl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="İlce" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaxNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaxOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedById" Type="Int32" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedById" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
         </EntityType>
-        <EntityContainer Name="HuwaxEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cari" EntityType="Self.Cari" />
-          <EntitySet Name="CariOperation" EntityType="HuwaxModel.CariOperation" />
-          <EntitySet Name="CarWash" EntityType="HuwaxModel.CarWash" />
-          <EntitySet Name="DayOff" EntityType="HuwaxModel.DayOff" />
-          <EntitySet Name="Personnel" EntityType="HuwaxModel.Personnel" />
-          <EntitySet Name="Salary" EntityType="HuwaxModel.Salary" />
-          <EntitySet Name="Vehicle" EntityType="HuwaxModel.Vehicle" />
-          <EntitySet Name="User" EntityType="HuwaxModel.User" />
-        </EntityContainer>
         <EntityType Name="CariOperation">
           <Key>
             <PropertyRef Name="CariOperationId" />
@@ -197,9 +197,9 @@
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="CreatedById" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedById" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
         </EntityType>
         <EntityType Name="CarWash">
           <Key>
@@ -208,10 +208,10 @@
           <Property Name="CarWashId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="VehicleId" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedById" Type="Int32" />
           <Property Name="Total" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedById" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedById" Type="Int32" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="IsDeleted" Type="Boolean" />
@@ -241,11 +241,11 @@
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsDeleted" Type="Boolean" />
           <Property Name="CreatedById" Type="Int32" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedById" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
         </EntityType>
         <EntityType Name="Salary">
           <Key>
@@ -260,26 +260,6 @@
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedById" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="Vehicle">
-          <Key>
-            <PropertyRef Name="VehicleId" />
-          </Key>
-          <Property Name="VehicleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VehicleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="VehiclePlate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Gear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Fuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Km" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <Property Name="CreatedById" Type="Int32" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedById" Type="Int32" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -299,7 +279,27 @@
           <Property Name="ModifiedById" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="VehicleId" />
+          </Key>
+          <Property Name="VehicleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VehicleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VehiclePlate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fuel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Km" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedById" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedById" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -313,26 +313,26 @@
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
-                <ScalarProperty Name="CariId" ColumnName="CariId" />
-                <ScalarProperty Name="TCNo" ColumnName="TCNo" />
-                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="TaxOffice" ColumnName="TaxOffice" />
+                <ScalarProperty Name="TaxNumber" ColumnName="TaxNumber" />
                 <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="VergiNo" ColumnName="VergiNo" />
-                <ScalarProperty Name="VergiDairesi" ColumnName="VergiDairesi" />
-                <ScalarProperty Name="Firma" ColumnName="Firma" />
-                <ScalarProperty Name="Unvan" ColumnName="Unvan" />
-                <ScalarProperty Name="İl" ColumnName="İl" />
-                <ScalarProperty Name="İlce" ColumnName="İlce" />
-                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="TCNo" ColumnName="TCNo" />
+                <ScalarProperty Name="CariId" ColumnName="CariId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CariOperation">
             <EntityTypeMapping TypeName="HuwaxModel.CariOperation">
               <MappingFragment StoreEntitySet="CariOperation">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="ModifiedById" ColumnName="ModifiedById" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -350,10 +350,10 @@
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="ModifiedById" ColumnName="ModifiedById" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
                 <ScalarProperty Name="CarWashId" ColumnName="CarWashId" />
@@ -380,11 +380,11 @@
           <EntitySetMapping Name="Personnel">
             <EntityTypeMapping TypeName="HuwaxModel.Personnel">
               <MappingFragment StoreEntitySet="Personnel">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="ModifiedById" ColumnName="ModifiedById" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -408,27 +408,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Vehicle">
-            <EntityTypeMapping TypeName="HuwaxModel.Vehicle">
-              <MappingFragment StoreEntitySet="Vehicle">
-                <ScalarProperty Name="ModifiedById" ColumnName="ModifiedById" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Color" ColumnName="Color" />
-                <ScalarProperty Name="Km" ColumnName="Km" />
-                <ScalarProperty Name="Fuel" ColumnName="Fuel" />
-                <ScalarProperty Name="Gear" ColumnName="Gear" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="VehiclePlate" ColumnName="VehiclePlate" />
-                <ScalarProperty Name="VehicleName" ColumnName="VehicleName" />
-                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="HuwaxModel.User">
               <MappingFragment StoreEntitySet="User">
@@ -445,6 +424,27 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicle">
+            <EntityTypeMapping TypeName="HuwaxModel.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicle">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedById" ColumnName="ModifiedById" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Km" ColumnName="Km" />
+                <ScalarProperty Name="Fuel" ColumnName="Fuel" />
+                <ScalarProperty Name="Gear" ColumnName="Gear" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="VehiclePlate" ColumnName="VehiclePlate" />
+                <ScalarProperty Name="VehicleName" ColumnName="VehicleName" />
+                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
