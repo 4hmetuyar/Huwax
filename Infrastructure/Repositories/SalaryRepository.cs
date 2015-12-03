@@ -3,10 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Huwax.Dal;
+using Infrastructure.Infrastructure;
+using Infrastructure.Interfaces;
 
 namespace Infrastructure.Repositories
 {
-    class SalaryRepository
+  
+    public interface ISalaryRepository : IGenericRepository<Salary>
     {
+    }
+
+    public class SalaryRepository : GenericRepository<Salary>, ISalaryRepository
+    {
+        public SalaryRepository(IDatabaseFactory databaseFactory)
+            : base(databaseFactory)
+        {
+
+        }
     }
 }
