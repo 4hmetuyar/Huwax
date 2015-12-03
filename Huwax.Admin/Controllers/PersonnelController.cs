@@ -18,5 +18,10 @@ namespace Huwax.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult PersonnelList()
+        {
+            return View();
+        }
     }
 }

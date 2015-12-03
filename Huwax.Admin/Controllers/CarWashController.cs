@@ -13,5 +13,10 @@ namespace Huwax.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult CarWashList()
+        {
+            return View();
+        }
     }
 }
