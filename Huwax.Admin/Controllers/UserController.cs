@@ -13,5 +13,15 @@ namespace Huwax.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult AddUser()
+        {
+            return View();
+        }
+
+        public ActionResult UserList()
+        {
+            return View();
+        }
     }
 }
