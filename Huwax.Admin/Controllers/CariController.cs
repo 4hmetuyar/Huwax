@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Infrastructure.Interfaces;
+using Infrastructure.Models;
 using Infrastructure.Repositories;
 
 namespace Huwax.Admin.Controllers
@@ -31,6 +32,13 @@ namespace Huwax.Admin.Controllers
         }
 
         public ActionResult CariAdd()
+        {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CariAdd(CariModel model)
         {
             if (Session["User"] == null) return RedirectToAction("Login", "Account");
 
