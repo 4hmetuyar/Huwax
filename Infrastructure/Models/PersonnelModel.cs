@@ -18,5 +18,9 @@ namespace Infrastructure.Models
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<int> ModifiedById { get; set; }
-    }
+
+        public int SalaryId { get; set; }
+         public Nullable<int> Total { get; set; }
+        public string Description { get; set; }
+     }
 }
