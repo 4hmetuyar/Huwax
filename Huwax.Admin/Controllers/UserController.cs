@@ -23,5 +23,10 @@ namespace Huwax.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult UserProfile()
+        {
+            return View();
+        }
     }
 }

@@ -13,6 +13,8 @@ namespace Infrastructure.Repositories
     public interface IUserRepository : IGenericRepository<User>
     {
         User AddNewUserByUserModel(UserModel model);
+        UserModel GetUsersModelByUserNameAndPassword(string userName, string password);
+
     }
 
     public class UserRepository : GenericRepository<User>, IUserRepository
@@ -50,6 +52,28 @@ namespace Infrastructure.Repositories
                 
                 throw;
             }
+        }
+
+        public UserModel GetUsersModelByUserNameAndPassword(string userName, string password)
+        {
+            var model = (from user in DataContext.User
+                         where user.UserName == userName && user.Password == password && user.IsDeleted == false
+                         select new UserModel
+                         {
+                             Avatar = user.Avatar,
+                              CreatedById = user.CreatedById,
+                              Email = user.Email,
+                             IsDeleted = user.IsDeleted,
+                             LastName = user.LastName,
+                             ModifiedById = user.ModifiedById,
+                             ModifiedDate = user.ModifiedDate,
+                             Name = user.Name,
+                             Password = user.Password,
+                             Phone = user.Phone,
+                              UserId = user.UserId,
+                             UserName = user.UserName,
+                          }).FirstOrDefault();
+            return model;
         }
     }
 }
