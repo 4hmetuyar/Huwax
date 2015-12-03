@@ -41,6 +41,8 @@ namespace Infrastructure.Repositories
                     Total = model.Total
 
                 };
+                Add(add);
+                Commit();
                 return add;
             }
             catch (Exception)
