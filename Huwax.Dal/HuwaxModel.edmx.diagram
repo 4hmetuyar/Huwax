@@ -7,6 +7,12 @@
       <Diagram DiagramId="3348c8af655e4884821837a766d5a846" Name="Diagram1">
         <EntityTypeShape EntityType="HuwaxModel.Cari" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HuwaxModel.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuwaxModel.CariOperation" Width="1.5" PointX="4.875" PointY="0.875" />
+        <EntityTypeShape EntityType="HuwaxModel.CarWash" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="HuwaxModel.DayOff" Width="1.5" PointX="2.75" PointY="5.5" />
+        <EntityTypeShape EntityType="HuwaxModel.Personnel" Width="1.5" PointX="5" PointY="5.125" />
+        <EntityTypeShape EntityType="HuwaxModel.Salary" Width="1.5" PointX="7" PointY="0.875" />
+        <EntityTypeShape EntityType="HuwaxModel.Vehicle" Width="1.5" PointX="7" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

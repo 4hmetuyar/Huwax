@@ -12,19 +12,12 @@ namespace Huwax.Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Cari
+    public partial class Salary
     {
-        public int CariId { get; set; }
-        public string TCNo { get; set; }
-        public string Tel { get; set; }
-        public string Fax { get; set; }
-        public string VergiNo { get; set; }
-        public string VergiDairesi { get; set; }
-        public string Firma { get; set; }
-        public string Unvan { get; set; }
-        public string İl { get; set; }
-        public string İlce { get; set; }
-        public string Adres { get; set; }
+        public int SalaryId { get; set; }
+        public Nullable<int> PersonnelId { get; set; }
+        public Nullable<int> Total { get; set; }
+        public string Description { get; set; }
         public Nullable<int> CreatedById { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
