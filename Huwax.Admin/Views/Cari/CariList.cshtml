@@ -1,7 +1,7 @@
 ﻿@using Huwax.Common
-@model IEnumerable<Infrastructure.Models.UserModel>
+@model IEnumerable<Infrastructure.Models.CariModel>
 @{
-    ViewBag.Title = "Kullanıcı Listesi";
+    ViewBag.Title = "Cari Listesi";
     var i = 0;
 }
 
@@ -22,40 +22,41 @@
             <thead class="the-box dark full">
                 <tr>
                     <th>Sıra</th>
-                    <th>Ad Soyad</th>
-                    <th>E-Posta</th>
+                    <th>TC No</th>
+                    <th>Vergi Dairesi</th>
+                    <th>Vergi Numarası</th>
+                    <th>Sirket</th>
+                    <th>Unvan</th>
+                    <th>il</th>
+                    <th>ilce</th>
                     <th>Telefon</th>
                     <th>Seçenekler</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var user in Model)
+                @foreach (var cari in Model)
                 {
                     i++;
                     <tr>
                         <td>@i</td>
-                        @if (user.Avatar != null)
-                        {
-                            string imageBase64 = Convert.ToBase64String(user.Avatar);
-                            string imageScr = string.Format("data:image/gif;base64,{0}", imageBase64);
-                            <td><img src="@imageScr" class="avatar img-circle" alt="avatar">@user.Name @user.LastName</td>
-                        }
-                        else
-                        {
-                            <td><img src="~/assets/img/avatar/user-icon.png" class="avatar img-circle" alt="avatar">@user.Name @user.LastName</td>
 
-                        }
-                        <td>@user.Email</td>
-                        <td>@user.Phone</td>
+                        <td>@cari.TCNo</td>
+                        <td>@cari.TaxOffice</td>
+                        <td>@cari.TaxNumber</td>
+                        <td>@cari.Company</td>
+                        <td>@cari.Title</td>
+                        <td>@cari.Province</td>
+                        <td>@cari.District</td> 
+                        <td>@cari.Phone</td>
 
                         <td>
-                            <a href="@Url.Action("UserStatus", "User", new { userId = user.UserId })"><span class="btn btn-default" title="Aktif"><i class="fa  fa-check-square-o"></i></span></a>
+                            <a href="@Url.Action("UserStatus", "User", new { userId = cari.CariId })"><span class="btn btn-default" title="Aktif"><i class="fa  fa-check-square-o"></i></span></a>
 
-                            <a class="btn btn-danger" data-toggle="modal" title="Delete" href='#DefaultModal' onclick="SetId(@user.UserId)">
+                            <a class="btn btn-danger" data-toggle="modal" title="Delete" href='#DefaultModal' onclick="SetId(@cari.CariId)">
                                 <i class=" fa fa-trash-o"></i>
                             </a>
-                            <a href="@Url.Action("UserProfile", "User", new { userId = user.UserId })"><span class="btn btn-default" title="Profil"><i class="fa fa-user"></i></span></a>
-                            <a href="@Url.Action("UserProfileEdit","User",new {userId=user.UserId})"><span class="btn btn-default" title="Düzenle"><i class="fa fa-wrench"></i></span></a>
+                            <a href="@Url.Action("UserProfile", "User", new { userId = cari.CariId })"><span class="btn btn-default" title="Profil"><i class="fa fa-user"></i></span></a>
+                            <a href="@Url.Action("UserProfileEdit","User",new {userId=cari.CariId})"><span class="btn btn-default" title="Düzenle"><i class="fa fa-wrench"></i></span></a>
                         </td>
 
                     </tr>

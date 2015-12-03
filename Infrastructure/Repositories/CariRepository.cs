@@ -15,6 +15,7 @@ namespace Infrastructure.Repositories
     public interface ICariRepository : IGenericRepository<Cari>
     {
         Cari AddNewCariByCariModel(CariModel model);
+        List<CariModel> GetAllCariList();
     }
 
     public class CariRepository : GenericRepository<Cari>, ICariRepository
@@ -51,9 +52,32 @@ namespace Infrastructure.Repositories
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
+        }
+
+        public List<CariModel> GetAllCariList()
+        {
+            var model = (from cari in DataContext.Cari
+                         select new CariModel
+                         {
+                             CreatedDate = cari.CreatedDate,
+                            Address = cari.Address,
+                            Company = cari.Company,
+                            District = cari.District,
+                            Fax = cari.Fax,
+                            Phone = cari.Phone,
+                            Province = cari.Province,
+                            TCNo = cari.TCNo,
+                            TaxNumber = cari.TaxNumber,
+                            TaxOffice = cari.TaxOffice,
+                            Title = cari.Title,
+                            CreatedById = cari.CreatedById,
+                            CariId = cari.CariId
+                            
+                         }).ToList();
+            return model;
         }
     }
 }
