@@ -38,11 +38,20 @@ namespace Huwax.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CariAdd(CariModel model)
+        public ActionResult CariAdd(CariModel cariModel)
         {
-            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+            try
+            {
+                if (Session["User"] == null) return RedirectToAction("Login", "Account");
 
-            return View();
+                return View();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         public ActionResult CariList()
