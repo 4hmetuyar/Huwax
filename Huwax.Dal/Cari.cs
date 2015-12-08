@@ -17,7 +17,7 @@ namespace Huwax.Dal
         public int CariId { get; set; }
         public string TCNo { get; set; }
         public string Phone { get; set; }
-        public string Fax { get; set; }
+        public string Email { get; set; }
         public string TaxNumber { get; set; }
         public string TaxOffice { get; set; }
         public string Company { get; set; }

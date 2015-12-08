@@ -12,7 +12,7 @@
           <Property Name="CariId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TCNo" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
-          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="TaxNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="TaxOffice" Type="nvarchar" MaxLength="50" />
           <Property Name="Company" Type="nvarchar" MaxLength="50" />
@@ -168,7 +168,7 @@
           <Property Name="CariId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TCNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TaxNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TaxOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -286,12 +286,12 @@
           <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Enterprice" Type="Boolean" />
+          <Property Name="VehicleTypeId" Type="Int32" />
           <Property Name="CreatedById" Type="Int32" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedById" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <Property Name="VehicleTypeId" Type="Int32" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -314,7 +314,7 @@
                 <ScalarProperty Name="Company" ColumnName="Company" />
                 <ScalarProperty Name="TaxOffice" ColumnName="TaxOffice" />
                 <ScalarProperty Name="TaxNumber" ColumnName="TaxNumber" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="TCNo" ColumnName="TCNo" />
                 <ScalarProperty Name="CariId" ColumnName="CariId" />
@@ -424,12 +424,12 @@
           <EntitySetMapping Name="Vehicle">
             <EntityTypeMapping TypeName="HuwaxModel.Vehicle">
               <MappingFragment StoreEntitySet="Vehicle">
-                <ScalarProperty Name="VehicleTypeId" ColumnName="VehicleTypeId" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="ModifiedById" ColumnName="ModifiedById" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+                <ScalarProperty Name="VehicleTypeId" ColumnName="VehicleTypeId" />
                 <ScalarProperty Name="Enterprice" ColumnName="Enterprice" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Model" ColumnName="Model" />

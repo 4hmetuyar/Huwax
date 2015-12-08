@@ -43,7 +43,33 @@ namespace Huwax.Admin.Controllers
             try
             {
                 if (Session["User"] == null) return RedirectToAction("Login", "Account");
+                if (cariModel!=null)
+                {
+                    var user = (UserModel) Session["User"];
+                    var model = new CariModel
+                    {
+                        Email = cariModel.Email,
+                        CreatedDate = DateTime.Now,
+                        CreatedById = user.UserId,
+                        IsDeleted = false,
+                        Address = cariModel.Address,
+                        Company = cariModel.Company,
+                        District = cariModel.District,
+                        Phone = cariModel.Phone,
+                        Province = cariModel.Province,
+                        TCNo = cariModel.TCNo,
+                        TaxNumber = cariModel.TaxNumber,
+                        TaxOffice = cariModel.TaxOffice,
+                        Title = cariModel.Title,
 
+                    };
+
+                    var add = _cariRepository.AddNewCariByCariModel(model);
+                    if (add!=null)
+                    {
+                        return RedirectToAction("CariList", "Cari");
+                    }
+                }
                 return View();
             }
             catch (Exception)

@@ -20,11 +20,11 @@ namespace Huwax.Dal
         public string Model { get; set; }
         public string Description { get; set; }
         public Nullable<bool> Enterprice { get; set; }
+        public Nullable<int> VehicleTypeId { get; set; }
         public Nullable<int> CreatedById { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<int> ModifiedById { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-        public Nullable<int> VehicleTypeId { get; set; }
     }
 }
