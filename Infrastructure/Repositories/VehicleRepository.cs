@@ -10,7 +10,7 @@ using Infrastructure.Models;
 
 namespace Infrastructure.Repositories
 {
- 
+
 
     public interface IVehicleRepository : IGenericRepository<Vehicle>
     {
@@ -35,14 +35,11 @@ namespace Infrastructure.Repositories
                     CreatedDate = model.CreatedDate,
                     CreatedById = model.CreatedById,
                     Description = model.Description,
-                    Color = model.Color,
-                    Fuel = model.Fuel,
-                    Gear = model.Gear,
-                    Km = model.Km,
                     Model = model.Model,
                     VehicleName = model.VehicleName,
                     VehiclePlate = model.VehiclePlate,
-                    Year = model.Year
+                    Enterprice = model.Enterprice
+
 
                 };
                 Add(add);
@@ -51,9 +48,9 @@ namespace Infrastructure.Repositories
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-         }
+        }
     }
 }

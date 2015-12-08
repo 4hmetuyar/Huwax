@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="HuwaxModel.Personnel" Width="1.5" PointX="4.75" PointY="4.75" />
         <EntityTypeShape EntityType="HuwaxModel.Salary" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="HuwaxModel.User" Width="1.5" PointX="6.75" PointY="4.75" />
-        <EntityTypeShape EntityType="HuwaxModel.Vehicle" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HuwaxModel.Vehicle" Width="1.5" PointX="0.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
