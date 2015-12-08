@@ -23,8 +23,8 @@ namespace Huwax.Admin.Controllers
 
             return View();
         }
-        [HttpPost]
-        public ActionResult AddVehicle(VehicleModel model)
+          [HttpPost]
+        public ActionResult AddVehicle(VehicleModel vehicleModel)
         {
             try
             {
