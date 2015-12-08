@@ -130,6 +130,7 @@
           <Property Name="Model" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Enterprice" Type="bit" />
+          <Property Name="VehicleTypeId" Type="int" />
           <Property Name="CreatedById" Type="int" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="ModifiedDate" Type="datetime" />
@@ -290,6 +291,7 @@
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedById" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="VehicleTypeId" Type="Int32" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -422,6 +424,7 @@
           <EntitySetMapping Name="Vehicle">
             <EntityTypeMapping TypeName="HuwaxModel.Vehicle">
               <MappingFragment StoreEntitySet="Vehicle">
+                <ScalarProperty Name="VehicleTypeId" ColumnName="VehicleTypeId" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="ModifiedById" ColumnName="ModifiedById" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />

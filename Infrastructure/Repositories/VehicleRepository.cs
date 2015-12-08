@@ -15,6 +15,7 @@ namespace Infrastructure.Repositories
     public interface IVehicleRepository : IGenericRepository<Vehicle>
     {
         Vehicle AddNewVehicleByVehicleModel(VehicleModel model);
+        List<VehicleModel> GetAllVehicleList();
     }
 
     public class VehicleRepository : GenericRepository<Vehicle>, IVehicleRepository
@@ -38,9 +39,8 @@ namespace Infrastructure.Repositories
                     Model = model.Model,
                     VehicleName = model.VehicleName,
                     VehiclePlate = model.VehiclePlate,
-                    Enterprice = model.Enterprice
-
-
+                    Enterprice = model.Enterprice,
+                    VehicleTypeId = model.VehicleType,
                 };
                 Add(add);
                 Commit();
@@ -51,6 +51,27 @@ namespace Infrastructure.Repositories
 
                 throw;
             }
+        }
+
+        public List<VehicleModel> GetAllVehicleList()
+        {
+            var model = (from vehicle in DataContext.Vehicle
+                where vehicle.IsDeleted == false
+                select new VehicleModel
+                {
+                    VehiclePlate = vehicle.VehiclePlate,
+                    Model = vehicle.Model,
+                    VehicleName = vehicle.VehicleName,
+                    Description = vehicle.Description,
+                    Enterprice = vehicle.Enterprice ?? false,
+                    CreatedById = vehicle.CreatedById,
+                    CreatedDate = vehicle.CreatedDate,
+                    VehicleId = vehicle.VehicleId,
+                    VehicleType = vehicle.VehicleTypeId??1,
+
+                }
+                ).ToList();
+            return model;
         }
     }
 }

@@ -57,7 +57,8 @@ namespace Huwax.Admin.Controllers
                         IsDeleted = false,
                         Model = vehicleModel.Model,
                         VehicleName = vehicleModel.VehicleName,
-                        VehiclePlate = vehicleModel.VehiclePlate
+                        VehiclePlate = vehicleModel.VehiclePlate,
+                        VehicleType = vehicleModel.VehicleType
             
                     };
                     var add = _vehicleRepository.AddNewVehicleByVehicleModel(model);
@@ -78,9 +79,18 @@ namespace Huwax.Admin.Controllers
 
         public ActionResult VehicleList()
         {
-            if (Session["User"] == null) return RedirectToAction("Login", "Account");
-
-            return View();
+            try
+            {
+                if (Session["User"] == null) return RedirectToAction("Login", "Account");
+                var model = _vehicleRepository.GetAllVehicleList();
+                return View(model);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+           
         }
     }
 }
