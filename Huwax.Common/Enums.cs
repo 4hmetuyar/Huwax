@@ -30,6 +30,11 @@ namespace Huwax.Common
 
 
         }
+        public enum Enterprice
+        {
+            Kurumsal=1,
+            Bireysel=2
+        }
 
 
     }
