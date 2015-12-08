@@ -21,6 +21,15 @@ namespace Huwax.Common
             SahaMuduru = 9,
             Bayi = 10
         }
+        public enum VehicleType
+        {
+            Otomobil=1,
+            Minibus=2,
+            Motosiklet=3,
+            Ticari=4,
+
+
+        }
 
 
     }

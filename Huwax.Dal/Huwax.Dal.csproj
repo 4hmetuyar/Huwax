@@ -111,6 +111,7 @@
       <DependentUpon>HuwaxModel.edmx</DependentUpon>
       <LastGenOutput>HuwaxModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="HuwaxModel.edmx.sql" />
     <Content Include="HuwaxModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HuwaxModel.edmx</DependentUpon>
