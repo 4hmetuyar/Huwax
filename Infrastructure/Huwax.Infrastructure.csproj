@@ -72,6 +72,7 @@
     <Compile Include="Models\CarWashModel.cs" />
     <Compile Include="Models\DayOffModel.cs" />
     <Compile Include="Models\PersonnelModel.cs" />
+    <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Models\SalaryModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\VehicleModel.cs" />

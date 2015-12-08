@@ -595,6 +595,7 @@
     <Content Include="Views\Cari\CariAdd.cshtml" />
     <Content Include="Views\Cari\CariList.cshtml" />
     <Content Include="Views\Account\Lock.cshtml" />
+    <Content Include="Views\Home\_TotalVehicle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

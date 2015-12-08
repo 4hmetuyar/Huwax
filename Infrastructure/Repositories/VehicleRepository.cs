@@ -16,6 +16,7 @@ namespace Infrastructure.Repositories
     {
         Vehicle AddNewVehicleByVehicleModel(VehicleModel model);
         List<VehicleModel> GetAllVehicleList();
+        int TotalVehicleCount();
     }
 
     public class VehicleRepository : GenericRepository<Vehicle>, IVehicleRepository
@@ -72,6 +73,11 @@ namespace Infrastructure.Repositories
                 }
                 ).ToList();
             return model;
+        }
+
+        public int TotalVehicleCount()
+        {
+            return (from vehicle in DataContext.Vehicle where vehicle.IsDeleted == false select vehicle).Count();
         }
     }
 }
