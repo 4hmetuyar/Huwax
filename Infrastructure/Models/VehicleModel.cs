@@ -19,7 +19,7 @@ namespace Infrastructure.Models
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<int> ModifiedById { get; set; }
-        public string CustumerType { get; set; }
+        public int CustumerType { get; set; }
         public string VehicleType { get; set; }
     }
 }
