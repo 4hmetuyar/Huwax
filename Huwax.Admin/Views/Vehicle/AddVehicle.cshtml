@@ -14,7 +14,7 @@
         </div>
         <div class="the-box form-horizontal ">
             <h4 class="small-title"></h4>
-            @using (Html.BeginForm("VehicleAdd", "Vehicle", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("AddVehicle", "Vehicle", FormMethod.Post))
                     {
                     @Html.AntiForgeryToken()
                     <div class="form-group">
@@ -26,14 +26,14 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Araç Bilgisi</label>
                         <div class="col-lg-4">
-                            <input type="text" style=" text-transform: uppercase;" class="form-control" name="VehicleName" id="VehicleName" placeholder="Araç Bilgisi" required />
+                            <input type="text" style="text-transform: uppercase;" class="form-control" name="VehicleName" id="VehicleName" placeholder="Araç Bilgisi" required />
                         </div>
 
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Plaka</label>
                         <div class="col-lg-4">
-                            <input type="text" class="form-control" style="  text-transform: uppercase;" name="VehiclePlate" id="VehiclePlate" placeholder="34AU2015" required />
+                            <input type="text" class="form-control" style="text-transform: uppercase;" name="VehiclePlate" id="VehiclePlate" placeholder="34AU2015" required />
                         </div>
                     </div>
                     <div class="form-group">
@@ -45,18 +45,18 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Araç Türü</label>
                         <div class="col-lg-4">
-                            <select class="form-control" name="TypeOfVehicle" id="TypeOfVehicle" required>
-                                <option>Otomobil</option>
-                                <option>Arazi, SUV & Pick-up</option>
-                                <option>Motosiklet </option>
-                                <option>Minivan, Van & Panelvan </option>
+                            <select class="form-control" name="VehicleType" id="VehicleType" required>
+                                <option value="1">Otomobil</option>
+                                <option value="2">Minibus</option>
+                                <option value="3">Motosiklet </option>
+                                <option value="4">Minivan, Van & Panelvan </option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Müşteri Tipi</label>
                         <div class="col-lg-4">
-                            <select class="form-control" name="TypeOfVehicle" id="TypeOfVehicle" required>
+                            <select class="form-control" name="CustumerType" id="CustumerType" required>
                                 <option value="1">Kurumsal</option>
                                 <option value="2">Bireysel</option>                                 
                             </select>

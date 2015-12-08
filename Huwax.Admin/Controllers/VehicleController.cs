@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,6 +22,22 @@ namespace Huwax.Admin.Controllers
             if (Session["User"] == null) return RedirectToAction("Login", "Account");
 
             return View();
+        }
+        [HttpPost]
+        public ActionResult AddVehicle(VehicleModel model)
+        {
+            try
+            {
+                if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
+                return View();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
         }
 
         public ActionResult VehicleList()
