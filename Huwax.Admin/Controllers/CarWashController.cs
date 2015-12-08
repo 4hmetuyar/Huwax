@@ -22,5 +22,21 @@ namespace Huwax.Admin.Controllers
 
             return View();
         }
+
+        public ActionResult AddCarWash()
+        {
+            try
+            {
+                if (Session["User"] == null) return RedirectToAction("Login", "Account");
+
+                return View();
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }
