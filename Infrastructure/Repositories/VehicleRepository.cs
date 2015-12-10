@@ -16,6 +16,7 @@ namespace Infrastructure.Repositories
     {
         Vehicle AddNewVehicleByVehicleModel(VehicleModel model);
         List<VehicleModel> GetAllVehicleList();
+        Vehicle GetVehicleByVehiclePlate(string vehiclePlate);
         int TotalVehicleCount();
     }
 
@@ -53,7 +54,10 @@ namespace Infrastructure.Repositories
                 throw;
             }
         }
-
+        public Vehicle GetVehicleByVehiclePlate(string vehiclePlate)
+        {
+            return (from vehicle in DataContext.Vehicle where vehicle.VehiclePlate == vehiclePlate select vehicle).FirstOrDefault();
+        }
         public List<VehicleModel> GetAllVehicleList()
         {
             var model = (from vehicle in DataContext.Vehicle
