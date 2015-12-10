@@ -15,13 +15,16 @@ namespace Huwax.Admin.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserRepository _userRepository;
         private readonly IVehicleRepository _vehicleRepository;
+        private readonly ICarWashRepository _carWashRepository;
 
         public HomeController(IUnitOfWork unitOfWork, 
             IVehicleRepository vehicleRepository,
+            ICarWashRepository carWashRepository,
             IUserRepository userRepository)
         {
             _unitOfWork = unitOfWork;
             _userRepository = userRepository;
+            _carWashRepository = carWashRepository;
             _vehicleRepository = vehicleRepository;
         }
 
@@ -46,6 +49,24 @@ namespace Huwax.Admin.Controllers
             catch (Exception)
             {
                 
+                throw;
+            }
+        }
+
+        public ActionResult _TotalCarWash()
+        {
+            try
+            {
+                var model = new ReportModel
+                {
+                    TotalCarWash = _carWashRepository.TotalCarWashCount(),
+                };
+                return PartialView(model);
+
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

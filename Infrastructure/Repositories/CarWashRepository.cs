@@ -16,6 +16,7 @@ namespace Infrastructure.Repositories
     {
         CarWash AddNewCarWashByCarWashModel(CarWashModel model);
         List<CarWashModel> GetAllCarWashModelList();
+        int TotalCarWashCount();
     }
 
     public class CarWashRepository : GenericRepository<CarWash>, ICarWashRepository
@@ -79,6 +80,11 @@ namespace Infrastructure.Repositories
                 
                 throw;
             }
+        }
+
+        public int TotalCarWashCount()
+        {
+            return (from carWash in DataContext.CarWash where carWash.IsDeleted == false select carWash).Count();
         }
     }
 }

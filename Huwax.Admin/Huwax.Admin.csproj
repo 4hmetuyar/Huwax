@@ -599,6 +599,7 @@
     <Content Include="Views\Account\Lock.cshtml" />
     <Content Include="Views\Home\_TotalVehicle.cshtml" />
     <Content Include="Views\CarWash\AddCarWash.cshtml" />
+    <Content Include="Views\Home\_TotalCarWash.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

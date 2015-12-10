@@ -9,5 +9,6 @@ namespace Infrastructure.Models
    public class ReportModel
     {
         public int TotolVehicle { get; set; }
+        public int TotalCarWash { get; set; }
     }
 }
