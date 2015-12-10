@@ -1,7 +1,7 @@
 ﻿@using Huwax.Common
 @model IEnumerable<Infrastructure.Models.VehicleModel>
 @{
-    ViewBag.Title = "Kullanıcı Listesi";
+    ViewBag.Title = "Araç  Listesi";
     var i = 0;
 }
 
@@ -11,17 +11,8 @@
             <div class="row">
                 <div class="col-sm-6">
                     <h1>
-                        <i class="fa fa-plus icon-lg icon-circle icon-bordered"></i> Araç Kayıt İşlemi
+                        <i class="fa  fa-tasks icon-lg icon-circle icon-bordered"></i> Araç Listesi
                     </h1>
-                </div>
-            </div>
-        </div>
-
-        <div class="btn-toolbar top-table" role="toolbar">
-            <div class="btn-group pull-right">
-
-                <div class="btn-group">
-                    <a href="@Url.Action("UserAdd", "User")" class="btn btn-default"><i class="fa fa-plus"></i> Yeni Kullanıcı Ekle</a>
                 </div>
             </div>
         </div>
