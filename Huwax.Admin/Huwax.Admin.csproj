@@ -158,9 +158,11 @@
     <Content Include="assets\img\avatar\avatar-8.jpg" />
     <Content Include="assets\img\avatar\avatar-9.jpg" />
     <Content Include="assets\img\logo-login.png" />
+    <Content Include="assets\img\logo\huwax.PNG" />
     <Content Include="assets\img\photo\large\img-12.jpg" />
     <Content Include="assets\img\photo\large\img-13.jpg" />
     <Content Include="assets\img\photo\large\img-14.jpg" />
+    <Content Include="assets\img\photo\large\img-15.jpg" />
     <Content Include="assets\img\photo\large\img-7.jpg" />
     <Content Include="assets\img\photo\large\img-8.jpg" />
     <Content Include="assets\img\photo\medium\img-1.jpg" />
