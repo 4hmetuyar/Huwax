@@ -1,7 +1,7 @@
 ﻿@using Huwax.Common
-@model IEnumerable<Infrastructure.Models.CarWashModel>
+@model IEnumerable<Infrastructure.Models.PersonnelModel>
 @{
-    ViewBag.Title = "Yıkama Listesi";
+    ViewBag.Title = "Personel Listesi";
     var i = 0;
 }
 
@@ -11,13 +11,13 @@
             <div class="row">
                 <div class="col-sm-6">
                     <h1>
-                        <i class="fa fa-plus icon-lg icon-circle icon-bordered"></i> Oto Yıkama Bilgileri
+                        <i class="fa  fa-users icon-lg icon-circle icon-bordered"></i> Personel Listesi
                     </h1>
                 </div>
             </div>
         </div>
 
-         
+
         <!-- BEGIN DATA TABLE -->
         <div class="the-box">
             <div class="table-responsive">
@@ -25,14 +25,12 @@
                     <thead class="the-box dark full">
                         <tr>
                             <th>Sıra</th>
-                            <th>Plaka</th>
-                            <th>Araç</th>
-                            <th>Tutar</th>
-                            <th>Tarih</th>
-                            <th>Acıklama</th>
+                            <th>Ad Soyad</th>
+                            <th>E-Posta</th>
+                            <th>Telefon</th>
+                            <th>Maaş</th>
+                            <th>Açıklama</th>
                             <th>Seçenekler</th>
-
-
                         </tr>
                     </thead>
                     <tbody>
@@ -41,18 +39,18 @@
                             i++;
                             <tr>
                                 <td>@i</td>
-
-                                <td style="text-transform: uppercase;">@user.VehiclePlate</td>
-                                <td style="text-transform: uppercase;">@user.VehicleName</td>
+                                <td>@user.Name @user.LastName</td>
+                                <td>@user.Email</td>
+                                <td>@user.Phone</td>
                                 <td>@user.Total TL</td>
-                                <td>@user.Date</td>
-                                <td>@user.Description</td>
+                                <td>@user.Description</td> 
+ 
                                 <td>
  
-                                    <a class="btn btn-danger" data-toggle="modal" title="Delete" href='#DefaultModal' onclick="SetId(@user.VehicleId)">
+                                    <a class="btn btn-danger" data-toggle="modal" title="Delete" href='#DefaultModal' onclick="SetId(@user.PersonnelId)">
                                         <i class=" fa fa-trash-o"></i>
                                     </a>
-                                 </td>
+                                     </td>
 
                             </tr>
                         }
@@ -84,10 +82,10 @@
             </div>
         </div>
 
-        <script>
-            function SetId(userId) {
-                $("#DeleteUser").attr('href', '/User/UserDelete?userId=' + userId);
-            }
-        </script>
+        @*<script>
+        function SetId(userId) {
+            $("#DeleteUser").attr('href', '/User/UserDelete?userId=' + userId);
+        }
+        </script>*@
     </div>
 </div>
