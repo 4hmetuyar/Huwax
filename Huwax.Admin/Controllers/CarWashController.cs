@@ -38,7 +38,8 @@ namespace Huwax.Admin.Controllers
         {
             if (Session["User"] == null) return RedirectToAction("Login", "Account");
 
-            return View();
+            var model = _carWashRepository.GetAllCarWashModelList();
+            return View(model);
         }
 
         public ActionResult AddCarWash()
@@ -46,8 +47,7 @@ namespace Huwax.Admin.Controllers
             try
             {
                 if (Session["User"] == null) return RedirectToAction("Login", "Account");
-                var model = _carWashRepository.GetAllCarWashModelList();
-                return View(model);
+                 return View();
 
             }
             catch (Exception)

@@ -19,5 +19,6 @@ namespace Infrastructure.Models
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
         public string VehiclePlate { get; set; }
+        public string VehicleName { get; set; }
     }
 }

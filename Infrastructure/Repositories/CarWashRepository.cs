@@ -69,6 +69,7 @@ namespace Infrastructure.Repositories
                         Total = carWash.Total,
                         VehicleId = carWash.VehicleId,
                         CarWashId = carWash.CarWashId,
+                        VehicleName = car.VehicleName,
                         
                     }
                     ).ToList();
