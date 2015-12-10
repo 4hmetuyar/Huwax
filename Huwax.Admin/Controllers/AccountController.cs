@@ -92,7 +92,7 @@ namespace Huwax.Admin.Controllers
                     if (user != null)
                     {
                         Session["User"] = user;
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Dashboard", "Home");
                     }
                     else
                     {

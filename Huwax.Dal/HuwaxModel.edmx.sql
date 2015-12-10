@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/08/2015 16:25:51
+-- Date Created: 12/10/2015 10:46:50
 -- Generated from EDMX file: C:\Users\Profesor\Source\Repos\Huwax\Huwax.Dal\HuwaxModel.edmx
 -- --------------------------------------------------
 
@@ -56,7 +56,7 @@ CREATE TABLE [dbo].[Cari] (
     [CariId] int IDENTITY(1,1) NOT NULL,
     [TCNo] nvarchar(50)  NULL,
     [Phone] nvarchar(50)  NULL,
-    [Fax] nvarchar(50)  NULL,
+    [Email] nvarchar(50)  NULL,
     [TaxNumber] nvarchar(50)  NULL,
     [TaxOffice] nvarchar(50)  NULL,
     [Company] nvarchar(50)  NULL,
@@ -172,12 +172,9 @@ CREATE TABLE [dbo].[Vehicle] (
     [VehicleName] nvarchar(50)  NULL,
     [VehiclePlate] nvarchar(50)  NULL,
     [Model] nvarchar(50)  NULL,
-    [Year] nvarchar(50)  NULL,
-    [Gear] nvarchar(50)  NULL,
-    [Fuel] nvarchar(50)  NULL,
-    [Km] nvarchar(50)  NULL,
-    [Color] nvarchar(50)  NULL,
     [Description] nvarchar(max)  NULL,
+    [Enterprice] bit  NULL,
+    [VehicleTypeId] int  NULL,
     [CreatedById] int  NULL,
     [CreatedDate] datetime  NULL,
     [ModifiedDate] datetime  NULL,

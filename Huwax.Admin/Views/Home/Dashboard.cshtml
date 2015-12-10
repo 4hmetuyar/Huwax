@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Anasayfa";
+}
+
+
+
+<!-- BEGIN SiTE INFORMATIONS -->
+<div class="row">
+    @Html.Action("_TotalVehicle", "Home")
+    @Html.Action("_TotalCarWash", "Home")
+    <div class="col-sm-3">
+        <div class="the-box no-border bg-danger tiles-information">
+            <i class="fa fa-comments icon-bg"></i>
+            <div class="tiles-inner text-center">
+                <p>Toplam Borç</p>
+                <h1 class="bolded">124 TL</h1>
+                <div class="progress no-rounded progress-xs">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                    </div><!-- /.progress-bar .progress-bar-danger -->
+                </div><!-- /.progress .no-rounded -->
+                <p><small>Less than yesterday ( <span class="text-danger">-7,5%</span> )</small></p>
+            </div><!-- /.tiles-inner -->
+        </div><!-- /.the-box no-border -->
+    </div><!-- /.col-sm-3 -->
+    <div class="col-sm-3">
+        <div class="the-box no-border bg-warning tiles-information">
+            <i class="fa fa-money icon-bg"></i>
+            <div class="tiles-inner text-center">
+                <p>Toplam Kazanç</p>
+                <h1 class="bolded">10,241 TL</h1>
+                <div class="progress no-rounded progress-xs">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                    </div><!-- /.progress-bar .progress-bar-warning -->
+                </div><!-- /.progress .no-rounded -->
+                <p><small>Better than yesterday ( 2,5% )</small></p>
+            </div><!-- /.tiles-inner -->
+        </div><!-- /.the-box no-border -->
+    </div><!-- /.col-sm-3 -->
+</div><!-- /.row -->
+<!-- END SITE INFORMATIONS -->
+
+
+
+
+
+
+<h4 class="text-center small-heading more-margin-bottom">Bu bolumler güncellenecektir.</h4>
+
+@*<div class="row">
+        <div class="col-sm-3">
+            <!-- BEGIN WEATHER WIDGET 4 -->
+            <div class="the-box no-border full text-center">
+                <div class="the-box no-border bg-warning no-margin">
+                    <canvas id="clear-day" width="140" height="140"></canvas>
+                    <h1 class="bolded less-distance">27<i class="wi-degrees"></i></h1>
+                    <h4>It's sunny</h4>
+                </div><!-- /.the-box no-border bg-warning no-margin -->
+                <div class="the-box no-border no-margin">
+                    <h4 class="bolded less-distance">BOYOLALI, ID</h4>
+                    <p class="small text-muted">My hometown</p>
+                </div><!-- /.the-box no-border no-margin -->
+            </div><!-- /.the-box .no-border .full -->
+            <!-- END WEATHER WIDGET 4 -->
+        </div><!-- /.col-sm-3 -->
+        <div class="col-sm-3">
+            <!-- BEGIN WEATHER WIDGET 4 -->
+            <div class="the-box no-border full text-center">
+                <div class="the-box no-border bg-danger no-margin">
+                    <canvas id="rain" width="140" height="140"></canvas>
+                    <h1 class="bolded less-distance">27<i class="wi-degrees"></i></h1>
+                    <h4>It's raining</h4>
+                </div><!-- /.the-box no-border bg-danger no-margin -->
+                <div class="the-box no-border no-margin">
+                    <h4 class="bolded less-distance">PARIS, FRANCE</h4>
+                    <p class="small text-muted">My dream city</p>
+                </div><!-- /.the-box no-border no-margin -->
+            </div><!-- /.the-box .no-border .full -->
+            <!-- END WEATHER WIDGET 4 -->
+        </div><!-- /.col-sm-3 -->
+        <div class="col-sm-3">
+            <!-- BEGIN WEATHER WIDGET 4 -->
+            <div class="the-box no-border full text-center">
+                <div class="the-box no-border bg-success no-margin">
+                    <canvas id="wind" width="140" height="140"></canvas>
+                    <h1 class="bolded less-distance">27<i class="wi-degrees"></i></h1>
+                    <h4>It's wind</h4>
+                </div><!-- /.the-box no-border bg-success no-margin -->
+                <div class="the-box no-border no-margin">
+                    <h4 class="bolded less-distance">MECCA, KSA</h4>
+                    <p class="small text-muted">Someday I'll be there</p>
+                </div><!-- /.the-box no-border no-margin -->
+            </div><!-- /.the-box .no-border .full -->
+            <!-- END WEATHER WIDGET 4 -->
+        </div><!-- /.col-sm-3 -->
+        <div class="col-sm-3">
+            <!-- BEGIN WEATHER WIDGET 4 -->
+            <div class="the-box no-border full text-center">
+                <div class="the-box no-border bg-primary no-margin">
+                    <canvas id="partly-cloudy-night" width="140" height="140"></canvas>
+                    <h1 class="bolded less-distance">27<i class="wi-degrees"></i></h1>
+                    <h4>Cloudy night</h4>
+                </div><!-- /.the-box no-border bg-primary no-margin -->
+                <div class="the-box no-border no-margin">
+                    <h4 class="bolded less-distance">TOKYO, JAPAN</h4>
+                    <p class="small text-muted">I just wanna visit</p>
+                </div><!-- /.the-box no-border no-margin -->
+            </div><!-- /.the-box .no-border .full -->
+            <!-- END WEATHER WIDGET 4 -->
+        </div><!-- /.col-sm-3 -->
+    </div>*@

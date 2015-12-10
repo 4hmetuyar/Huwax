@@ -1,11 +1,12 @@
 ﻿
 @{
     ViewBag.Title = "Anasayfa";
+    Layout = null;
 }
-
+<a href="@Url.Action("Login","Account")">Giris</a>
  
 
-<!-- BEGIN SiTE INFORMATIONS -->
+@*<!-- BEGIN SiTE INFORMATIONS -->
 <div class="row">
     @Html.Action("_TotalVehicle","Home")
     @Html.Action("_TotalCarWash","Home")

@@ -31,7 +31,7 @@ namespace Huwax.Admin.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+           
             return View();
         }
 
@@ -69,6 +69,12 @@ namespace Huwax.Admin.Controllers
 
                 throw;
             }
+        }
+
+        public ActionResult Dashboard()
+        {
+            if (Session["User"] == null) return RedirectToAction("Login", "Account");
+            return View();
         }
     }
 }
