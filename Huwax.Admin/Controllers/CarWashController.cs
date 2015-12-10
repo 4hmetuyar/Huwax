@@ -14,14 +14,17 @@ namespace Huwax.Admin.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserRepository _userRepository;
         private readonly ICarWashRepository _carWashRepository;
+        private readonly IVehicleRepository _vehicleRepository;
 
         public CarWashController(IUnitOfWork unitOfWork, 
+            IVehicleRepository vehicleRepository,
             ICarWashRepository carWashRepository,
             IUserRepository userRepository)
         {
             _unitOfWork = unitOfWork;
             _userRepository = userRepository;
             _carWashRepository = carWashRepository;
+            _vehicleRepository = vehicleRepository;
         }
         // GET: CarWash
         public ActionResult Index()
@@ -59,7 +62,28 @@ namespace Huwax.Admin.Controllers
             try
             {
                 if (Session["User"] == null) return RedirectToAction("Login", "Account");
-                var vehicle=
+                var vehicle = _vehicleRepository.GetVehicleByVehiclePlate(carWashModel.VehiclePlate);
+                if (vehicle!=null)
+                {
+                    var user = (UserModel) Session["User"];
+                    var model = new CarWashModel
+                    {
+                        VehiclePlate = carWashModel.VehiclePlate,
+                        CreatedById = user.UserId,
+                        CreatedDate = DateTime.Now,
+                        Date = DateTime.Now,
+                        Description = carWashModel.Description,
+                        IsDeleted = false,
+                        Total = carWashModel.Total,
+                       VehicleId = vehicle.VehicleId,
+                       
+                    };
+                    var add = _carWashRepository.AddNewCarWashByCarWashModel(model);
+                    if (add!=null)
+                    {
+                        return RedirectToAction("CarWashList", "CarWash");
+                    }
+                }
                 return View();
 
             }
