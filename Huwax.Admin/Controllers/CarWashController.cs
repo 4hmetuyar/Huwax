@@ -46,8 +46,8 @@ namespace Huwax.Admin.Controllers
             try
             {
                 if (Session["User"] == null) return RedirectToAction("Login", "Account");
-
-                return View();
+                var model = _carWashRepository.GetAllCarWashModelList();
+                return View(model);
 
             }
             catch (Exception)

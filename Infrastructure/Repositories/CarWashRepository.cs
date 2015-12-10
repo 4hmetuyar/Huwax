@@ -15,6 +15,7 @@ namespace Infrastructure.Repositories
     public interface ICarWashRepository : IGenericRepository<CarWash>
     {
         CarWash AddNewCarWashByCarWashModel(CarWashModel model);
+        List<CarWashModel> GetAllCarWashModelList();
     }
 
     public class CarWashRepository : GenericRepository<CarWash>, ICarWashRepository
@@ -51,6 +52,32 @@ namespace Infrastructure.Repositories
                 throw;
             }
            
+        }
+
+        public List<CarWashModel> GetAllCarWashModelList()
+        {
+            try
+            {
+                return (from car in DataContext.Vehicle
+                    join carWash in DataContext.CarWash on car.VehicleId equals carWash.VehicleId
+                        where carWash.IsDeleted==false && car.IsDeleted==false
+                    select new CarWashModel
+                    {
+                        VehiclePlate = car.VehiclePlate,
+                        Date = carWash.Date,
+                        Description = carWash.Description,
+                        Total = carWash.Total,
+                        VehicleId = carWash.VehicleId,
+                        CarWashId = carWash.CarWashId,
+                        
+                    }
+                    ).ToList();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }
